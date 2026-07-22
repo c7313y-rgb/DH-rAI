@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#07182d">
+  <title>LOCATION SALES AI｜統合立地分析エージェント</title>
+  <meta name="description" content="7つの評価レイヤーから売上、適正賃料、出店ニーズを可視化する営業向け統合立地分析AI。">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><div class="brand-mark"><i></i><span></span></div><div><b>LOCATION SALES AI</b><small>Location Intelligence Agent</small></div></div>
+    <nav class="side-nav" aria-label="メインメニュー">
+      <button class="nav-item active" data-target="overview"><span>⌂</span><b>総合ダッシュボード</b></button>
+      <button class="nav-item" data-target="diagnosis"><span>◎</span><b>統合立地診断</b></button>
+      <button class="nav-item" data-target="evidence"><span>▦</span><b>7層評価・根拠</b></button>
+      <button class="nav-item" data-target="demand"><span>◇</span><b>出店ニーズ業態</b><em>6</em></button>
+      <button class="nav-item" data-target="economics"><span>↗</span><b>売上・経済条件</b></button>
+      <button class="nav-item" data-target="actions"><span>≋</span><b>営業アクション</b></button>
+      <button class="nav-item" id="reportNav"><span>▤</span><b>提案書生成</b></button>
+    </nav>
+    <div class="nav-label">SYSTEM</div>
+    <nav class="side-nav compact"><button class="nav-item" data-action="sources"><span>⌘</span><b>データソース</b></button><button class="nav-item" data-action="alerts"><span>◌</span><b>アラート</b><em class="red">2</em></button><button class="nav-item" data-action="settings"><span>⚙</span><b>分析設定</b></button></nav>
+    <div class="data-health"><div><span class="pulse"></span><b>分析データ</b><small>すべて正常</small></div><div class="source-row"><span>物件DB</span><i></i><span>商圏統計</span><i></i><span>交通量</span></div><button data-action="sources">最終更新 10分前</button></div>
+    <div class="side-user"><div class="avatar">佐</div><div><b>佐藤 美咲</b><small>東日本リーシング営業部</small></div><button aria-label="アカウントメニュー">•••</button></div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar"><button class="menu-toggle" id="menuToggle" aria-label="メニュー">☰</button><div class="breadcrumb"><span>営業AI</span><b>/</b><strong>統合立地分析</strong></div><div class="top-actions"><label class="search"><span>⌕</span><input id="quickSearch" placeholder="物件・エリアを検索"></label><button class="icon-btn" data-action="alerts">◌<i>2</i></button><button class="help" data-action="help">?</button><button class="primary-btn small" id="newAnalysis"><span>＋</span>新規立地分析</button></div></header>
+
+    <section class="hero" id="overview"><div class="hero-bg"></div><div class="hero-content"><div class="eyebrow"><i></i>AI LOCATION INTELLIGENCE</div><span class="mode-badge">営業PoC｜郊外型商業施設モード</span><h1>この場所で、<br><strong>何が、いくら売れるのか。</strong></h1><p>7つの評価レイヤーで売上・賃料・出店ニーズを統合分析。<br>営業が次に提案すべき業態と条件を、根拠とともに提示します。</p><div class="hero-actions"><button class="gold-btn" id="heroAnalyze"><span>✦</span> 統合AI診断を実行</button><button class="glass-btn" id="heroReport">AI提案書を作成 <span>→</span></button></div></div><div class="hero-side"><div class="updated"><span>LIVE ANALYSIS</span><b>宇都宮南部ロードサイド</b><small>最終更新 2026.07.22 15:40</small></div><div class="agent-online"><span class="pulse"></span>AIエージェント稼働中</div></div></section>
+
+    <div class="dashboard">
+      <section class="kpi-grid" aria-label="分析KPI">
+        <article class="kpi gold"><div class="kpi-icon">売</div><div><small>売上予測中央値</small><b id="heroSales">4,180<em>万円/月</em></b><p><strong>＋8.6%</strong> 類似事例比</p></div></article>
+        <article class="kpi blue"><div class="kpi-icon">賃</div><div><small>適正賃料レンジ</small><b id="heroRent">198〜224<em>万円</em></b><p><strong>−6万円</strong> 希望条件との差</p></div></article>
+        <article class="kpi green"><div class="kpi-icon">業</div><div><small>最有望業態</small><b class="text" id="heroType">ドラッグ＋調剤</b><p><strong>94点</strong> 需要・物件適合</p></div></article>
+        <article class="kpi violet"><div class="kpi-icon">確</div><div><small>総合確度</small><b id="heroConfidence">86<em>%</em></b><p><strong>7データ層</strong> 統合済み</p></div></article>
+        <article class="kpi red"><div class="kpi-icon">!</div><div><small>要確認シグナル</small><b>2<em>件</em></b><p><strong>賃料・競合</strong> 要調整</p></div></article>
+      </section>
+
+      <section class="main-grid" id="diagnosis">
+        <article class="panel location-panel"><div class="panel-head"><div><span class="kicker">TARGET LOCATION</span><h2>対象物件・商圏</h2></div><button class="text-btn" id="editConditions">条件を編集</button></div><div class="location-map"><div class="map-grid"></div><div class="road r1"></div><div class="road r2"></div><div class="road r3"></div><span class="map-label l1">宇都宮上三川IC</span><span class="map-label l2">インターパーク</span><span class="map-label l3">住宅開発エリア</span><div class="trade-ring ring3"><span>3km</span></div><div class="trade-ring ring1"><span>1km</span></div><button class="pin"><i>AI</i></button><div class="map-card"><img src="assets/roadside-property.png" alt="宇都宮南部ロードサイド候補地"><div><span>分析対象</span><h3 id="mapProperty">宇都宮南部ロードサイド店舗</h3><p id="mapAddress">栃木県宇都宮市インターパーク周辺</p><dl><div><dt>敷地</dt><dd id="mapSite">2,650㎡</dd></div><div><dt>駐車場</dt><dd id="mapParking">42台</dd></div><div><dt>交通量</dt><dd id="mapTraffic">18,400台/日</dd></div></dl></div></div><div class="map-legend"><span><i></i>1km一次商圏</span><span><i></i>3km基礎商圏</span></div></div></article>
+
+        <article class="panel score-panel"><div class="panel-head"><div><span class="kicker">AI BUSINESS SCORE</span><h2>総合事業性</h2></div><span id="grade" class="grade">A</span></div><div class="score-main"><div class="score-ring" id="ring"><div><strong id="totalScore">86</strong><small>/100</small></div></div><div class="decision"><span>AI判定</span><h3 id="decisionTitle">積極提案</h3><p id="decisionText">生活密着型と自動車来店型の双方に強い立地。賃料条件を5〜8%調整すると成約確率が最大化します。</p></div></div><div class="forecast"><div><small>保守売上</small><b id="salesLow">3,650万円</b></div><div class="accent"><small>基準売上</small><b id="salesMid">4,180万円</b></div><div><small>上振れ売上</small><b id="salesHigh">4,780万円</b></div></div><div class="confidence"><span>予測信頼度</span><div><i id="confidenceBar" style="width:86%"></i></div><b id="confidenceText">86%</b></div><button class="deep-analysis" id="deepAnalysis">詳細な根拠を見る <span>→</span></button></article>
+
+        <aside class="right-rail"><article class="panel ai-action"><div class="ai-head"><div class="ai-orb">✦</div><div><span>AI SALES BRIEF</span><h2>おすすめ営業アクション</h2></div></div><div class="ai-summary">上位3業態へ<strong>業態別の売上根拠</strong>を添えて同時提案すると、反応率が<strong>12.4pt向上</strong>します。</div><ol id="briefActions"><li><i>1</i><div><b>ドラッグ＋調剤へ優先打診</b><p>商圏空白と医療集積が強い</p></div><button data-target="demand">確認</button></li><li><i>2</i><div><b>賃料を二段階で提示</b><p>211万円を基準に反応比較</p></div><button data-target="economics">試算</button></li><li><i>3</i><div><b>類似実績を提案書へ追加</b><p>近隣5事例との比較が有効</p></div><button id="briefReport">作成</button></li></ol><button class="agent-btn" id="agentBtn"><span>✦</span> AIエージェントに相談する <b>→</b></button></article><article class="panel alert-panel"><div class="panel-head simple"><h2>検知シグナル</h2><button data-action="alerts">すべて見る</button></div><button><i class="warning">!</i><div><b>希望賃料が適正上限超過</b><p>条件調整で成約確度が改善</p></div><time>重要</time></button><button><i class="info">↗</i><div><b>競合出店情報を検知</b><p>半径5km・同業態1店舗</p></div><time>2時間前</time></button></article></aside>
+      </section>
+
+      <section class="section" id="evidence"><div class="section-title"><div><span class="kicker">SEVEN-LAYER EVALUATION</span><h2>7層の統合評価</h2><p>売上予測を構成する要因を、営業が説明できる粒度で可視化</p></div><button class="outline-btn" id="compareCase">類似事例と比較</button></div><div class="layers" id="layers"></div><div class="evidence-grid"><article class="panel"><div class="panel-head"><div><h2>評価根拠サマリー</h2><p>スコアに影響した主要ファクト</p></div></div><div id="evidenceList" class="evidence-list"></div></article><article class="panel"><div class="panel-head"><div><h2>類似事例比較</h2><p>同規模・同商圏の実績との比較</p></div></div><div class="case-chart" id="caseChart"></div><div class="legend"><span>本物件予測</span><span>類似事例実績</span></div></article></div></section>
+
+      <section class="section" id="demand"><div class="section-title"><div><span class="kicker">TENANT DEMAND</span><h2>出店ニーズが高い業種・業態</h2><p>エリア需要・出店トレンド・競合空白・物件適合を統合順位化</p></div><div class="tabs"><button class="tab on" data-filter="all">総合</button><button class="tab" data-filter="retail">物販</button><button class="tab" data-filter="food">飲食</button><button class="tab" data-filter="service">サービス</button></div></div><div class="demand-grid" id="demandGrid"></div></section>
+
+      <section class="section economics-grid" id="economics"><article class="panel"><div class="panel-head"><div><span class="kicker">ECONOMIC CONDITIONS</span><h2>適正な経済条件レンジ</h2><p>売上・投資回収・賃料負担率から逆算</p></div></div><div class="economic-cards"><div><small>適正賃料</small><b id="fairRent">198〜224万円</b><span>月額・共益費別</span></div><div><small>許容保証金</small><b id="deposit">1,188〜2,240万円</b><span>賃料6〜10か月</span></div><div><small>推奨フリーレント</small><b id="freeRent">2〜4か月</b><span>初期投資に応じ調整</span></div><div><small>投資回収目安</small><b id="payback">4.2〜5.6年</b><span>業態別に変動</span></div></div><div class="range-block"><div class="range-labels"><span>成約優先</span><span>収益最大</span></div><div class="range"><i id="rentMarker"></i></div><div class="range-values"><span id="rangeLow">185万円</span><b id="rangeBest">211万円</b><span id="rangeHigh">238万円</span></div></div></article><article class="panel"><div class="panel-head"><div><span class="kicker">CATEGORY ECONOMICS</span><h2>業態別経済性</h2><p>売上・賃料負担・投資回収を比較</p></div></div><div class="table-wrap"><table><thead><tr><th>業態</th><th>月商予測</th><th>適正賃料</th><th>負担率</th><th>回収</th></tr></thead><tbody id="economicsTable"></tbody></table></div></article></section>
+
+      <section class="section action-grid" id="actions"><article class="panel"><div class="panel-head"><div><span class="kicker">NEXT BEST ACTION</span><h2>AI営業アクション</h2><p>今日から実行する順番を提案</p></div></div><div id="actionsList" class="actions-list"></div></article><article class="panel talk-panel"><div class="panel-head"><div><span class="kicker">SALES TALK</span><h2>営業トーク支援</h2><p>候補企業への提案ポイントを自動生成</p></div></div><div id="talkTrack" class="talk-track"></div><button id="reportBtn" class="primary-btn full">AI提案書・営業報告を生成 <span>→</span></button></article></section>
+      <footer><div class="footer-brand"><div class="brand-mark small"><i></i><span></span></div><b>LOCATION SALES AI</b></div><span>統合立地分析・営業判断エージェント</span><nav><button data-action="help">ヘルプ</button><button data-action="sources">データソース</button><button data-action="settings">設定</button></nav><small>© 2026 LOCATION SALES AI. Demo environment.</small></footer>
+    </div>
+  </main>
+</div>
+
+<button class="floating-ai" id="floatingAi" aria-label="AIエージェントを開く"><span>✦</span><i></i></button>
+<div class="drawer-backdrop" id="drawerBackdrop"></div>
+<aside class="drawer" id="analysisDrawer" aria-hidden="true"><header><div><span>LOCATION INPUT</span><h2>物件・エリア条件</h2><p>営業が把握している情報から即時診断</p></div><button class="drawer-close" aria-label="閉じる">×</button></header><form id="analysisForm"><label class="full">物件名<input id="property" value="宇都宮南部ロードサイド店舗"></label><label class="full">所在地<input id="address" value="栃木県宇都宮市インターパーク周辺"></label><div class="form-grid"><label>敷地面積（㎡）<input id="siteArea" type="number" value="2650"></label><label>延床面積（㎡）<input id="buildingArea" type="number" value="680"></label><label>駐車場（台）<input id="parking" type="number" value="42"></label><label>前面交通量（台/日）<input id="traffic" type="number" value="18400"></label><label>商圏人口（3km）<input id="population" type="number" value="74800"></label><label>希望賃料（万円/月）<input id="rent" type="number" value="230"></label><label>駅距離（km）<input id="station" type="number" step="0.1" value="5.8"></label><label>築年数<input id="age" type="number" value="12"></label><label>エリア成長率（%）<input id="growth" type="number" step="0.1" value="2.8"></label><label>物件種別<select id="propertyType"><option>郊外ロードサイド</option><option>商業施設区画</option><option>住宅地近接</option><option>物流・産業立地</option></select></label></div><div class="ai-note"><span>✦</span><div><b>7層データを自動統合</b><p>未入力項目は類似事例と商圏統計から補完して診断します。</p></div></div><div class="form-actions"><button type="button" id="sampleBtn" class="ghost-btn">サンプル復元</button><button type="submit" class="primary-btn">統合AI診断を実行 <span>→</span></button></div></form></aside>
+
+<aside class="ai-chat" id="aiChat" aria-hidden="true"><header><div class="ai-orb">✦</div><div><span>LOCATION SALES AI</span><b>営業戦略アシスタント</b></div><i class="pulse"></i><button id="chatClose">×</button></header><div class="chat-body" id="chatBody"><div class="chat-date">本日 15:40</div><div class="message ai"><span>✦</span><div>こんにちは、佐藤さん。この立地は<strong>生活密着型と自動車来店型</strong>の両方に強みがあります。<br><br>まずはドラッグ＋調剤への提案条件を確認しますか？</div></div><div class="suggestions"><button>上位3業態を比較</button><button>賃料交渉案を作成</button><button>類似事例を要約</button></div></div><form id="chatForm" class="chat-input"><textarea id="chatInput" rows="1" placeholder="立地・商圏について質問する"></textarea><button>↑</button><small>AIの回答は予測を含みます。重要な判断は原データをご確認ください。</small></form></aside>
+
+<dialog id="reportDialog"><form method="dialog" class="report-shell"><header><div><span>AI GENERATED SALES DOCUMENT</span><h2>AI提案書・営業報告</h2></div><button value="close">×</button></header><pre id="report"></pre><footer><button type="button" id="copy" class="ghost-btn">内容をコピー</button><button type="button" id="print" class="ghost-btn">PDFとして印刷</button><button class="primary-btn" value="close">確認して閉じる</button></footer></form></dialog>
+<div class="toast" id="toast" role="status"><span>✓</span><div><b>更新しました</b><p>分析結果を保存しました</p></div></div>
+<script src="app.js"></script>
+</body>
+</html>
